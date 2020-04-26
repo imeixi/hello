@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://timediary.top
+url: http://imeixi.github.io/timediary
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -166,6 +166,6 @@ valine:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/imeixi/timediary.top.git> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: https://github.com/imeixi/timediary.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: gh-pages #published
-  message: "hexo gererate pages"
+  message: hexo gererate pages
