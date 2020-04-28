@@ -121,6 +121,8 @@ menu:
   主页: /
   归档: /archives
   相册: /gallery
+  标签: /tags
+  分类: /categories
   关于: /about
 rss: /atom.xml
 
@@ -166,6 +168,6 @@ valine:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/imeixi/timediary.git> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: https://github.com/imeixi/timediary.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: gh-pages #published
   message: "hexo gererate pages"
