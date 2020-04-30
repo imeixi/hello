@@ -39,6 +39,7 @@ jobs:
     # 重新部署页面
     - run: git config --global user.email "zheng.ah.r@gmail.com"
     - run: git config --global user.name "imeixi"
+    - run: npm install hexo-deployer-git --save 
     - run: hexo d
     
     
