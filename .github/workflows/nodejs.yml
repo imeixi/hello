@@ -25,21 +25,28 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
    
-    # 安装hexo
-    - run: npm install -g hexo-cli
-    - run: npm install hexo
-      
-    # 安装依赖 package.json （plugins）
-    - run: npm install
-
-    # 重新生成页面
-    - run: hexo clean
-    - run: hexo g
-    
-    # 重新部署页面
-    - run: git config --global user.email "zheng.ah.r@gmail.com"
-    - run: git config --global user.name "imeixi"
-    - run: npm install hexo-deployer-git --save 
-    - run: hexo d
+    - name: Setup Hexo env
+      env:
+        ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
+      run: |
+        # set up private key for deploy
+        mkdir -p ~/.ssh/
+        echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        
+        # set git infomation
+        git config --global user.name 'imeixi' # 换成你自己的邮箱和名字
+        git config --global user.email 'zheng.ah.r@gmail.com'
+        
+        # install dependencies
+        npm i -g hexo-cli # 安装hexo
+        npm i hexo
+        npm i             # 安装 package.json
+  
+    - name: Deploy
+      run: |
+        # publish
+        hexo generate && hexo deploy # 执行部署程序
     
     
