@@ -168,6 +168,6 @@ valine:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/imeixi/timediary.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: git@github.com:imeixi/timediary.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: gh-pages #published
   message: hexo gererate pages
