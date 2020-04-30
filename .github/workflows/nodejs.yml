@@ -24,7 +24,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-#     安装hexo
+   
+    # 安装hexo
     - run: npm install -g hexo-cli
     - run: npm install hexo
+      
+    # 安装依赖 package.json （plugins）
     - run: npm install
+
+    # 重新生成页面
+    - run: hexo clean
+    - run: hexo g
+    
+    # 重新部署页面
+    - run: hexo d
+    
+    
